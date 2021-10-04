@@ -1,0 +1,16 @@
+{
+  "name": "occ-flowers-rarity",
+  "version": "1.0.0",
+  "description": "Collects details about the OCC Flowers NFT project",
+  "main": "index.js",
+  "scripts": {
+    "pick": "node index.js",
+    "parse": "node parse.js",
+    "images": "node images.js"
+  },
+  "author": "Sam King",
+  "license": "MIT",
+  "dependencies": {
+    "ethers": "^5.4.7"
+  }
+}
