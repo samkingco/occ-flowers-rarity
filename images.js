@@ -15,14 +15,20 @@ const { contract, tokenIds } = require("./contract");
       console.log(`Successfully saw flower #${tokenId}`);
 
       return {
-        [tokenId]: result.image,
+        tokenId,
+        image: result.image,
       };
     })
   );
 
+  const images = data.reduce((map, token) => {
+    map[token.tokenId] = token.image;
+    return map;
+  }, {});
+
   fs.writeFileSync(
     path.join(process.cwd(), "./output/images.json"),
-    JSON.stringify(data, null, 2)
+    JSON.stringify(images, null, 2)
   );
 
   console.log("Saved all the flower images into output/images.json");
