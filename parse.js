@@ -13,11 +13,12 @@ function outputJSON(filename, data) {
     path.join(process.cwd(), "./output/flowers.json")
   );
   const flowers = JSON.parse(data);
+  const TOTAL_FLOWERS = 4096;
 
   // Calculate attribute occurrences
   let occurrences = {};
-  for (let i = 0; i < flowers.length; i++) {
-    const attributes = flowers[i][(i + 1).toString()];
+  for (let i = 0; i < TOTAL_FLOWERS; i++) {
+    const attributes = flowers[(i + 1).toString()];
 
     // Add up number of occurrences of each attribute
     for (const [key, value] of Object.entries(attributes)) {
@@ -36,9 +37,9 @@ function outputJSON(filename, data) {
 
   // Calculate occurrence scores
   let rarityOccurrence = [];
-  for (let i = 0; i < flowers.length; i++) {
+  for (let i = 0; i < TOTAL_FLOWERS; i++) {
     let score = 0;
-    const attributes = flowers[i][(i + 1).toString()];
+    const attributes = flowers[(i + 1).toString()];
 
     // Increase the score by adding up the number of occurrences
     // for each of the flowers attrubutes. Lower score = more rare attributes.
@@ -61,13 +62,13 @@ function outputJSON(filename, data) {
 
   // Calculate pure probability
   let rarityProbability = [];
-  for (let i = 0; i < flowers.length; i++) {
+  for (let i = 0; i < TOTAL_FLOWERS; i++) {
     let scores = [];
-    const attributes = flowers[i][(i + 1).toString()];
+    const attributes = flowers[(i + 1).toString()];
 
     for (const [key, value] of Object.entries(attributes)) {
       // Collect probability of individual attribute occurrences
-      scores.push(occurrences[key][value] / flowers.length);
+      scores.push(occurrences[key][value] / TOTAL_FLOWERS);
     }
 
     // Multiply probabilites P(A and B) = P(A) * P(B)

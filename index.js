@@ -28,16 +28,21 @@ const { contract, tokenIds } = require("./contract");
       }, {});
 
       return {
-        [tokenId]: {
-          ...attributes,
-        },
+        tokenId,
+        ...attributes,
       };
     })
   );
 
+  const flowers = data.reduce((acc, flower) => {
+    const { tokenId, ...attrs } = flower;
+    acc[tokenId] = attrs;
+    return acc;
+  }, {});
+
   fs.writeFileSync(
     path.join(process.cwd(), "./output/flowers.json"),
-    JSON.stringify(data, null, 2)
+    JSON.stringify(flowers, null, 2)
   );
 
   console.log("Picked all the flowers data into output/flowers.json");
