@@ -15,6 +15,9 @@
     "canvas": "^2.8.0",
     "convert-svg-to-png": "^0.5.0",
     "ethers": "^5.4.7",
-    "gifencoder": "^2.0.1"
+    "gif-encoder": "^0.7.2",
+    "gifencoder": "^2.0.1",
+    "png-js": "^1.0.0",
+    "puppeteer": "^10.4.0"
   }
 }
