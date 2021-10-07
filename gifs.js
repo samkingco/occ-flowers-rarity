@@ -78,7 +78,7 @@ function sleep(ms) {
     // Render the svg to the headless browser
     await page.setContent(
       `<!DOCTYPE html><style>* { margin: 0; padding: 0; }</style>${svg}`,
-      { waitUntil: "domcontentloaded" }
+      { waitUntil: "networkidle2" }
     );
 
     // Start the encoder
