@@ -11,11 +11,14 @@ const { contract, tokenIds } = require("./contract");
       const tokenURI = await contract.tokenURI(tokenId);
       const json = Buffer.from(tokenURI.substring(29), "base64").toString();
       const result = JSON.parse(json);
-
       console.log(`Successfully saw flower #${tokenId}`);
+
+      const spinAttr = result.attributes.find((i) => i.trait_type === "Spin");
+      const spins = spinAttr && spinAttr.value === "True";
 
       return {
         tokenId,
+        spins,
         image: result.image,
       };
     })
