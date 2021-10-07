@@ -13,10 +13,12 @@
   "license": "MIT",
   "dependencies": {
     "canvas": "^2.8.0",
+    "cli-progress": "^3.9.1",
     "convert-svg-to-png": "^0.5.0",
     "ethers": "^5.4.7",
     "gif-encoder": "^0.7.2",
     "gifencoder": "^2.0.1",
+    "inkjet": "^3.0.0",
     "png-js": "^1.0.0",
     "puppeteer": "^10.4.0"
   }
