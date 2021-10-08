@@ -15,8 +15,17 @@ function outputJSON(filename, data) {
   const flowers = JSON.parse(data);
   const TOTAL_FLOWERS = 4096;
 
+  const flowerAttrs = {};
+  for (let i = 0; i < TOTAL_FLOWERS; i++) {
+    const attributes = flowers[(i + 1).toString()].attributes;
+    flowerAttrs[i + 1] = attributes;
+  }
+
+  // Output flower attributes
+  outputJSON("./output/attributes.json", flowerAttrs);
+
   // Calculate attribute occurrences
-  let occurrences = {};
+  const occurrences = {};
   for (let i = 0; i < TOTAL_FLOWERS; i++) {
     const attributes = flowers[(i + 1).toString()].attributes;
 
