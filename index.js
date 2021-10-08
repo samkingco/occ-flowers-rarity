@@ -16,7 +16,7 @@ const { contract, tokenIds } = require("./contract");
 
       // Flatten and normalise attrs
       const attributes = result.attributes.reduce((allAttrs, attr) => {
-        const type = slugify(attr.trait_type);
+        const type = camelCase(attr.trait_type).replace("bG", "bg");
         let value = attr.value;
         if (attr.value === "True") {
           value = true;
@@ -29,16 +29,16 @@ const { contract, tokenIds } = require("./contract");
 
       return {
         tokenId,
-        ...attributes,
+        attributes,
+        image: result.image,
       };
     })
   );
 
-  const flowers = data.reduce((acc, flower) => {
-    const { tokenId, ...attrs } = flower;
-    acc[tokenId] = attrs;
-    return acc;
-  }, {});
+  const flowers = {};
+  for (const { tokenId, ...tokenData } of data) {
+    flowers[tokenId] = tokenData;
+  }
 
   fs.writeFileSync(
     path.join(process.cwd(), "./output/flowers.json"),
@@ -50,14 +50,11 @@ const { contract, tokenIds } = require("./contract");
   console.error(err);
 });
 
-function slugify(string) {
-  return string
-    .toString()
-    .trim()
-    .toLowerCase()
-    .replace(/\s+/g, "-")
-    .replace(/[^\w\-]+/g, "")
-    .replace(/\-\-+/g, "-")
-    .replace(/^-+/, "")
-    .replace(/-+$/, "");
+function camelCase(str) {
+  return str
+    .replace(/(?:^\w|[A-Z]|\b\w)/g, (word, index) =>
+      index == 0 ? word.toLowerCase() : word.toUpperCase()
+    )
+    .replace(/\s+/g, "")
+    .replace(".", "");
 }

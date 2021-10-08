@@ -1,5 +1,5 @@
 {
-  "petal-style": {
+  "petalStyle": {
     "Magnolia": 267,
     "Bellflower": 325,
     "Bird of Paradise": 133,
@@ -18,7 +18,7 @@
     "Ethereum": 60,
     "Digital": 33
   },
-  "petal-color": {
+  "petalColor": {
     "Peach Schnapps": 107,
     "Eggshell": 109,
     "Carmine Pink": 116,
@@ -59,7 +59,7 @@
     "Powder Blue": 98,
     "Bright Cerulean": 93
   },
-  "core-size": {
+  "coreSize": {
     "16": 275,
     "17": 278,
     "18": 252,
@@ -76,7 +76,7 @@
     "29": 272,
     "30": 272
   },
-  "no-of-petals": {
+  "noOfPetals": {
     "4": 254,
     "5": 431,
     "6": 514,
@@ -95,7 +95,7 @@
     "19": 20,
     "20": 20
   },
-  "bg-color": {
+  "bgColor": {
     "Pink Sherbet": 85,
     "Eggshell": 103,
     "Greyish Purple": 92,
@@ -136,7 +136,7 @@
     "Bright Cerulean": 83,
     "Geraldine": 82
   },
-  "bg-overlay": {
+  "bgOverlay": {
     "Golden": 97,
     "Porcelain": 102,
     "Egyptian Blue": 99,
@@ -190,7 +190,7 @@
     "false": 3694,
     "true": 402
   },
-  "bg-type": {
+  "bgType": {
     "Normal": 3680,
     "Radial": 221,
     "Dalmatian": 70,
