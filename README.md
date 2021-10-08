@@ -10,7 +10,7 @@ This repository contains tooling and data for [OCC Flowers](https://www.occ.xyz/
 - `output/occurrences.json` contains the number of occurrences by attribute.
 - `output/rarity-occurrences.json` contains a mapping of `tokenId` to `score` (which is the sum of number of occcrences of each child attribute for a `tokenId`), sorted ascending by `score`. It also includes `rarest` which is how rare the flowers attributes are (`1` == `rarest`, `4096` == `least rare`), based on this specific ranking mechanism.
 - `output/rarity-probability.json` contains a mapping of `tokenId` to `rank` by probabilistic occurence rather than rank.
-- `output/images.json` contains the base64 encoded SVG of each tokenId
+- `output/rarity-rt-formula.json` contains a mapping of `tokenId` to `rank` using the [Rarity Tools](https://rarity.tools/) formula of `score = 1 / (sum of items with trait value / total items)`.
 
 ## Run locally
 
